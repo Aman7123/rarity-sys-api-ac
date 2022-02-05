@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  rarity-sys-api:
+    container_name: rarity-sys-api
+    image: rarity-sys-api-ac:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - spring.profiles.active=dev
+      - spring.config.name=rarity-sys-api-ac
+    ports:
+      - "8082:8080"
+      - "8007:9000"
