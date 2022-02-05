@@ -10,6 +10,8 @@ services:
     environment:
       - spring.profiles.active=dev
       - spring.config.name=rarity-sys-api-ac
+      - spring.datasource.username=USERNAME
+      - spring.datasource.password=PASSWORD
     ports:
       - "8082:8080"
       - "8007:9000"
