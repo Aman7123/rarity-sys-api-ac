@@ -1,0 +1,118 @@
+---
+openapi: 3.0.0
+info:
+  title: rarity-sys-api
+  description: A rarity resource API
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/ARTechnology/rarity-sys-api/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: http://example.com/rarity-sys-api/
+  description: EXAMPLE ONLY
+paths:
+  /rarity/{collection}/{id}:
+    get:
+      summary: Can search a collection for rarity
+      description: |
+        Returns a rarity rank
+      parameters:
+      - name: collection
+        in: path
+        description: The collection slug
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          enum:
+          - deadfellaz
+          - geisha
+      - name: id
+        in: path
+        description: The token ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: Retuns rarity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/rarityItem'
+        "404":
+          description: |
+            Resource could not be located bycollection or id.
+    post:
+      summary: Adds a rarity to a collection
+      description: |
+        This operation stores data in the MySQL database
+      parameters:
+      - name: collection
+        in: path
+        description: The collection slug
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          enum:
+          - deadfellaz
+          - geisha
+      - name: id
+        in: path
+        description: The token ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      requestBody:
+        description: Rarity level to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rarityItem'
+      responses:
+        "201":
+          description: item created
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: ID and/or rarity exists
+components:
+  schemas:
+    rarityItem:
+      required:
+      - rarity
+      type: object
+      properties:
+        rarity:
+          type: number
+          example: 999
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: The token ID
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: number
+    collectionInPath:
+      name: collection
+      in: path
+      description: The collection slug
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        enum:
+        - deadfellaz
+        - geisha

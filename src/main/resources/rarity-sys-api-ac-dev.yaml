@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+    url: jdbc:mysql://aaronrenner.com:8306/rarity
+    username: <USERNAME>
+    password: <PASSWORD>
+    driver-class-name: com.mysql.jdbc.Driver 
+  main:
+    banner-mode: off
+  application:
+    name: ${project.artifactId}
+camel:
+  springboot:
+    name: ${project.artifactId}
+    use-mdc-logging: true
+  rest:
+    port: 9000
+    context-path: /api
+management:
+  endpoint:
+    camelroutes:
+      enabled: true
+      read-only: true
+    health:
+      enabled: true
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info,health,camelroutes
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
