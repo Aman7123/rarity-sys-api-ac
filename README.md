@@ -5,7 +5,7 @@
 * This API project was generated using MS3's [Camel OpenAPI Archetype](https://github.com/MS3Inc/camel-archetypes), version 0.2.7.
 
 ### Introduction
-This RESTful API provides NFT rarity resources.
+This RESTful API provides NFT rarity resources. This API lacks generic examples, this is a more direct implement of an API that I require for some projects. First off I needed a database to hold persistent data, the only data it really needs to keep is a simple PK of the NFT token ID (by default is unique in ERC-721) and the value which is the rarity. The process to push data to the database is a manual process which is managed with BASH script(included). Rarity information is scrapped from `https://rarity.tools` with a AutoHotKey to download the pages.
 
 ### Documentation
 * See the Swagger OpenAPI Specification: `https://app.swaggerhub.com/apis-docs/ARTechnology/rarity-sys-api/1.0.0`
