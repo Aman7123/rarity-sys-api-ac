@@ -1,3 +1,5 @@
+[![BUILDER](https://github.com/Aman7123/rarity-sys-api-ac/actions/workflows/builder.yml/badge.svg?branch=main)](https://github.com/Aman7123/rarity-sys-api-ac/actions/workflows/builder.yml)
+
 ### rarity-sys-api-ac
 * Version: 1.0.0
 * Most up to date implementation will be found in branch `develop`.
