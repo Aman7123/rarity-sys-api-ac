@@ -6,7 +6,7 @@
     <groupId>com.aaronrenner.camel</groupId>
     <artifactId>rarity-sys-api-ac</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>rarity-sys-api-ac</name>
     <description>A Spring Boot Camel API created using MS3's OpenAPI archetype.</description>
